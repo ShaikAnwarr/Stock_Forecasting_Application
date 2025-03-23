@@ -2,9 +2,10 @@ import streamlit as st
 import pandas as pd
 import yfinance as yf
 import pandas_datareader.data as web
-from datetime import date
 import datetime
+import plotly.express as px
 
+# Set up Streamlit page
 st.set_page_config(page_title="CAPM",
                    page_icon="chart_with_upwards_trend",
                    layout='wide')
@@ -14,7 +15,8 @@ st.title("Capital Asset Pricing Model")
 # Getting input from user
 col1, col2 = st.columns([1, 1])
 with col1:
-    stock_list = st.multiselect("Choose 4 stocks", ('TSLA', 'AAPL', 'NFLX', 'MSFT', 'MGM', 'AMZN', 'NVDA', 'GOOGL'),
+    stock_list = st.multiselect("Choose 4 stocks",
+                                ('TSLA', 'AAPL', 'NFLX', 'MSFT', 'MGM', 'AMZN', 'NVDA', 'GOOGL'),
                                 ['TSLA', 'AAPL', 'AMZN', 'GOOGL'])
 with col2:
     num_years = int(st.number_input("Number of years", 1, 10, value=1))
@@ -51,3 +53,19 @@ with col1:
 with col2:
     st.markdown("### Dataframe tail")
     st.dataframe(stocks_df.tail(), use_container_width=True)
+
+# Interactive Plot Function
+def interactive_plot(df):
+    fig = px.line()
+    for i in df.columns[1:]:
+        fig.add_scatter(x=df['Date'], y=df[i], name=i)
+    fig.update_layout(width=450, margin=dict(l=20, r=20, t=50, b=20),
+                      legend=dict(orientation='h', yanchor='bottom',
+                                  y=1.02, xanchor='right', x=1))
+    return fig
+
+# Plot Price of all Stocks
+col1, col2 = st.columns([1, 1])
+with col1:
+    st.markdown("### Price of all Stocks")
+    st.plotly_chart(interactive_plot(stocks_df))
