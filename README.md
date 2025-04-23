@@ -1,32 +1,32 @@
 📊 Stock Forecasting Application
 
-This repository contains a Streamlit-based stock forecasting application built to analyze, visualize, and predict stock performance. It features stock information, price prediction using ARIMA models, return and risk analysis via CAPM, and technical indicator-based insights for smarter investment decisions.
+  This repository contains a Streamlit-based stock forecasting application built to analyze, visualize, and predict stock performance. It features stock information, price prediction using    ARIMA models, return and risk analysis via CAPM, and technical indicator-based insights for smarter investment decisions.
 
-🚀 Features
+🚀 Features:
 
-📌 Stock Information
-Get an overview of any stock with business summary, sector classification, and key financial metrics.
+  📌 Stock Information:
+        Get an overview of any stock with business summary, sector classification, and key financial metrics.
 
-🔮 Stock Price Prediction
-Predicts the next 30 days of closing prices using historical data and ARIMA time series models.
+🔮 Stock Price Prediction:
+        Predicts the next 30 days of closing prices using historical data and ARIMA time series models.
 
-📈 Stock Analysis with Indicators
-Visual analysis powered by technical indicators including:
+📈 Stock Analysis with Indicators:
+  Visual analysis powered by technical indicators including:
 
-RSI (Relative Strength Index)
+        RSI (Relative Strength Index)
 
-MACD (Moving Average Convergence Divergence)
+        MACD (Moving Average Convergence Divergence)
 
-Simple & Exponential Moving Averages
+        Simple & Exponential Moving Averages
 
-📉 CAPM Calculations
-Compute expected return and beta values using the Capital Asset Pricing Model.
+📉 CAPM Calculations:
+  Compute expected return and beta values using the Capital Asset Pricing Model.
 
 
-🧰 Requirements
-To run this application, install the following dependencies:
-pip install streamlit pandas yfinance plotly pandas_ta numpy scikit-learn statsmodels
-Or, use a requirements.txt to streamline setup.
+🧰 Requirements:
+  To run this application, install the following dependencies:
+    pip install streamlit pandas yfinance plotly pandas_ta numpy scikit-learn statsmodels
+  Or, use a requirements.txt to streamline setup.
 
 📁 File Structure
 ├── Trading_App.py           # Main Streamlit interface
@@ -39,17 +39,17 @@ Or, use a requirements.txt to streamline setup.
 └── requirements.txt         # Python dependencies list
 
 ⚙️ How to Run
-Clone the repository:
-git clone https://github.com/ShaikAnwarr/Stock_Forecasting_Application.git
+  Clone the repository:
+    git clone https://github.com/ShaikAnwarr/Stock_Forecasting_Application.git
 
 Navigate into the project directory:
-cd Stock_Forecasting_Application
+  cd Stock_Forecasting_Application
 
 Install dependencies:
-pip install -r requirements.txt
+  pip install -r requirements.txt
 
 Start the Streamlit app:
-streamlit run Trading_App.py
+  streamlit run Trading_App.py
 
 The app will open in your default web browser.
 
@@ -64,5 +64,5 @@ The app will open in your default web browser.
 ![WhatsApp Image 2025-04-23 at 21 46 05_590ede61](https://github.com/user-attachments/assets/9a1a8ff1-6125-4066-96bf-7e7ab61f7481)
 
 👤 Author:
-Shaik Anwarr
-B.Tech CSE | Android & Python Developer
+  Shaik Anwarr
+  B.Tech CSE | Android & Python Developer
