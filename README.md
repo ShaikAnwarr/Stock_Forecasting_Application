@@ -28,15 +28,24 @@
     pip install streamlit pandas yfinance plotly pandas_ta numpy scikit-learn statsmodels
   Or, use a requirements.txt to streamline setup.
 
-📁 File Structure
-├── Trading_App.py           # Main Streamlit interface
-├── Stock_Prediction.py      # Prediction logic (ARIMA & Linear Regression)
-├── Stock_Analysis.py        # Technical indicators & analysis
-├── model_train.py           # Training/evaluation utilities
-├── plotly_figure.py         # Custom Plotly chart generation
-├── CAPM_Return.py           # Calculates CAPM expected return
-├── CAPM_Beta.py             # Computes stock beta for CAPM model
-└── requirements.txt         # Python dependencies list
+📁 File Structure:
+
+> Trading_App.py – Main Streamlit app entry point that interfaces with users.
+
+> Stock_Prediction.py – Contains stock prediction logic using ARIMA and Linear Regression models.
+
+> Stock_Analysis.py – Provides detailed technical analysis (RSI, MACD, moving averages).
+
+> model_train.py – Utility functions for training and evaluating the stock prediction models.
+
+> plotly_figure.py – Functions to generate and display interactive charts with Plotly.
+
+> CAPM_Return.py – Calculates the expected return using the Capital Asset Pricing Model (CAPM).
+
+> CAPM_Beta.py – Computes the beta value of a stock for CAPM calculations.
+
+> requirements.txt – Python dependencies needed for the application to function.
+
 
 ⚙️ How to Run
   Clone the repository:
