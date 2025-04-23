@@ -1,7 +1,9 @@
-📊 Stock Analysis and Prediction App
+📊 Stock Forecasting Application
+
 This repository contains a Streamlit-based stock forecasting application built to analyze, visualize, and predict stock performance. It features stock information, price prediction using ARIMA models, return and risk analysis via CAPM, and technical indicator-based insights for smarter investment decisions.
 
 🚀 Features
+
 📌 Stock Information
 Get an overview of any stock with business summary, sector classification, and key financial metrics.
 
@@ -51,7 +53,7 @@ streamlit run Trading_App.py
 
 The app will open in your default web browser.
 
-📌 Demo
+📌 Demo:
 ![WhatsApp Image 2025-04-23 at 21 46 02_775a4b76](https://github.com/user-attachments/assets/a14d0685-de22-4ea0-abc7-8e09cc3f0ee0)
 ![WhatsApp Image 2025-04-23 at 21 46 02_9953f9ec](https://github.com/user-attachments/assets/18372e37-aee1-4697-a0a6-00c92ffe308b)
 ![WhatsApp Image 2025-04-23 at 21 46 03_fb2e0495](https://github.com/user-attachments/assets/608170d6-2c15-4c42-852c-4dfc04db03ae)
@@ -61,6 +63,6 @@ The app will open in your default web browser.
 ![WhatsApp Image 2025-04-23 at 21 46 06_9d13abb3](https://github.com/user-attachments/assets/f238b400-b963-44b5-9d1d-300cedd3bcb9)
 ![WhatsApp Image 2025-04-23 at 21 46 05_590ede61](https://github.com/user-attachments/assets/9a1a8ff1-6125-4066-96bf-7e7ab61f7481)
 
-👤 Author
+👤 Author:
 Shaik Anwarr
 B.Tech CSE | Android & Python Developer
