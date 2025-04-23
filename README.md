@@ -5,9 +5,11 @@
 🚀 Features:
 
   📌 Stock Information:
+  
        > Get an overview of any stock with business summary, sector classification, and key financial metrics.
 
 🔮 Stock Price Prediction:
+
        > Predicts the next 30 days of closing prices using historical data and ARIMA time series models.
 
 📈 Stock Analysis with Indicators:
