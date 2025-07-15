@@ -1,6 +1,6 @@
 import yfinance as yf
 from statsmodels.tsa.stattools import adfuller
-from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.metrics import mean_squared_error
 from statsmodels.tsa.arima.model import ARIMA
 from sklearn.preprocessing import StandardScaler
 import numpy as np
@@ -10,38 +10,49 @@ from datetime import datetime, timedelta
 # Function to fetch stock data
 def get_data(ticker):
     stock_data = yf.download(ticker, start='2024-01-01')
+
+    if stock_data is None or stock_data.empty:
+        raise ValueError(f"No data fetched for {ticker}. Possible rate limit or invalid ticker.")
+
     return stock_data['Close']
 
 # Function to check stationarity using ADF test
 def stationary_check(close_price):
+    if close_price is None or len(close_price) == 0:
+        raise ValueError("No data passed to stationary_check(). Possible rate limit or empty data.")
     adf_test = adfuller(close_price)
-    p_value = round(adf_test[1], 3)  # Extract p-value
-    return p_value
+    return adf_test[1]
 
 # Function to calculate rolling mean
 def get_rolling_mean(close_price):
+    if close_price is None or len(close_price) == 0:
+        raise ValueError("No data to calculate rolling mean.")
     rolling_price = close_price.rolling(window=7).mean().dropna()
     return rolling_price
 
 # Function to determine the differencing order (d) for ARIMA
 def get_differencing_order(close_price):
-    d = 0  # Initialize differencing order
+    if close_price is None or len(close_price) == 0:
+        raise ValueError("No data passed to get_differencing_order().")
+
+    d = 0
     p_value = stationary_check(close_price)
 
-    while p_value > 0.05 and d < 5:  # Limit differencing to avoid excessive loss of data
+    while p_value > 0.05 and d < 5:
         d += 1
         close_price = close_price.diff().dropna()
+        if len(close_price) == 0:
+            break
         p_value = stationary_check(close_price)
 
     return d
 
 # Function to fit ARIMA model
 def fit_model(data, differencing_order):
-    model = ARIMA(data, order=(3, differencing_order, 3))  # Adjusted order to avoid overfitting
+    model = ARIMA(data, order=(3, differencing_order, 3))
     model_fit = model.fit()
-    forecast = model_fit.get_forecast(steps=30)  # Forecast for 30 days
-    predictions = forecast.predicted_mean
-    return predictions
+    forecast = model_fit.get_forecast(steps=30)
+    return forecast.predicted_mean
 
 # Function to evaluate model performance
 def evaluate_model(original_price, differencing_order):
