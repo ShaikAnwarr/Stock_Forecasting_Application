@@ -31,48 +31,26 @@ with col3:
 
 st.subheader(ticker)
 
-@st.cache_data
-def get_stock_info(ticker):
-    stock = yf.Ticker(ticker)
-    try:
-        return stock.info
-    except:
-        return {}
+stock = yf.Ticker(ticker)
 
-info = get_stock_info(ticker)
+st.write(stock.info['longBusinessSummary'])
+st.write("**Sector:**",stock.info['sector'])
+st.write("**Full Time Employees:**",stock.info['fullTimeEmployees'])
+st.write("**Website**:",stock.info['website'])
 
-
-st.write(info.get('longBusinessSummary', 'Summary not available'))
-st.write("**Sector:**", info.get('sector', 'N/A'))
-st.write("**Full Time Employees:**", info.get('fullTimeEmployees', 'N/A'))
-st.write("**Website**:", info.get('website', 'N/A'))
-
-
-col1, col2 = st.columns(2)
+col1,col2 = st.columns(2)
 
 with col1:
-    df = pd.DataFrame(index=["Market Cap", "Beta", "EPS", "PE Ratio"])
-    df[''] = [
-        info.get("marketCap", 'N/A'),
-        info.get("beta", 'N/A'),
-        info.get("trailingEps", 'N/A'),
-        info.get("trailingPE", 'N/A')
-    ]
-    fig_df = plotly_table(df)
+    df = pd.DataFrame(index= ["Market Cap", "Beta", "EPS", "PE Ratio"])
+    df[''] = [stock.info["marketCap"],stock.info["beta"],stock.info["trailingEps"],stock.info["trailingPE"]]
+    fig_df=plotly_table(df)
     st.plotly_chart(fig_df, use_container_width=True)
 
 with col2:
-    df = pd.DataFrame(index=["Quick Ratio", "Revenue per share", "Profit Margins", "Debt to Equity", "Return on Equity"])
-    df[''] = [
-        info.get("quickRatio", 'N/A'),
-        info.get("revenuePerShare", 'N/A'),
-        info.get("profitMargins", 'N/A'),
-        info.get("debtToEquity", 'N/A'),
-        info.get("returnOnEquity", 'N/A')
-    ]
-    fig_df = plotly_table(df)
+    df = pd.DataFrame(index= ["Quick Ratio", "Revenue per share", "Profit Margins","Debt to Equity", "Return to Equity"])
+    df[''] = [stock.info["quickRatio"],stock.info["revenuePerShare"],stock.info["profitMargins"],stock.info["debtToEquity"],stock.info["returnOnEquity"]]
+    fig_df=plotly_table(df)
     st.plotly_chart(fig_df, use_container_width=True)
-
 
 data = yf.download(ticker, start=start_date, end=end_date)
 
