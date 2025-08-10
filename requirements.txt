@@ -1,10 +1,24 @@
+# Core scientific stack
 numpy==1.26.4
 pandas==2.2.3
+scipy==1.10.1
+
+# Data fetching and TA libraries
 pandas_datareader==0.10.0
 pandas_ta==0.3.14b0
-plotly==6.0.0
-scikit-learn==1.6.1
-statsmodels==0.14.4
-streamlit==1.43.2
 yfinance==0.2.54
 
+# Plotting
+plotly==6.0.0
+
+# Machine learning
+scikit-learn==1.6.1
+
+# Statistical models
+statsmodels==0.14.4
+
+# Web app framework
+streamlit==1.43.2
+
+# Build & packaging tools (for distutils/pkg_resources support)
+setuptools==69.5.1
